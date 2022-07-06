@@ -1,0 +1,27 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido %} 
+    <p><h1>Formulario de alta de productos</h1></p>
+    <form action="{% url 'editar_producto' producto.id %}" method="POST">
+        {% csrf_token %} 
+        <p>Nombre:</p>
+        <input type="text" name="nombre" requiered>
+        <p>Codigo:</p>
+        <input type="number" name="codigo" required>
+        <p>Precio:</p>
+        <input type="number" name="precio" required>
+
+        <input type="submit" value="Enviar">
+
+
+
+    </form>
+    <button>
+        <a href="{% url 'inicio' %}">Cancelar</a>
+
+
+      </button>
+
+{% endblock %}  

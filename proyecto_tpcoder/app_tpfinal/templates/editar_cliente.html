@@ -1,0 +1,29 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido %} 
+    <p><h1>Formulario de alta de cliente</h1></p>
+    <form action="{% url 'editar_cliente' cliente.id %}" method="POST">
+        {% csrf_token %} 
+        <p>Nombre:</p>
+        <input type="text" name="nombre" requiered>
+        <p>obra social:</p>
+        <input type="text" name="os" required>
+        <p>Codigo Obra Social:</p>
+        <input type="number" name="cod_os" required>
+        <p>Fecha de nacimiento</p>
+        <input type="date" name="fec" required>
+
+        <input type="submit" value="Enviar">
+
+
+
+    </form>
+    <button>
+        <a href="{% url 'inicio' %}">Cancelar</a>
+
+
+      </button>
+
+{% endblock %}  

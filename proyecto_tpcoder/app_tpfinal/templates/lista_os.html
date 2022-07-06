@@ -1,0 +1,52 @@
+{% extends "padre2.html" %}
+
+{%  load static %}
+
+
+{% block contenido %}
+    
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Nombre Obra Social</th>
+            <th scope="col">Codigo</th>
+            <th scope="col">Nombre Producto</th>
+            <th scope="col">Codigo Producto</th>          
+          </tr>
+        </thead>
+        <tbody>
+            {% for n in os %}
+            <tr>
+                <th scope="row">{{n.id}}</th>
+                <td>{{n.nombre}}</td>
+                <td>{{n.cod_os}}</td>
+                <td>{{n.nombre_prod}}</td>
+                <td>{{n.codigo_prod}}</td>
+                <td><a href="{% url 'borra_os' n.id %}">BORRAR</a></td>
+                <td><a href="{% url 'editar_os' n.id %}">EDITAR</a></td>
+                
+            </tr>
+            {% endfor %}        
+        
+        </tbody>
+      </table>
+      <button>
+        <a href="alta_os">Agregar Obra Social</a>
+
+
+      </button>
+
+      <button>
+        <a href="{% url 'inicio' %}">Inicio</a>
+    
+    
+    </button>
+          
+
+
+
+
+       
+
+{% endblock %}

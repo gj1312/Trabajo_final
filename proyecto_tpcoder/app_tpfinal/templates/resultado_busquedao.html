@@ -1,0 +1,27 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenido %}
+    {% if os2 %} 
+    <ul>
+    {% for curso in os2 %} 
+        <li>Nombre Obra social: {{curso.nombre}}</li>
+        <li>Codigo: {{curso.codigo_os}}</li>
+    {% endfor %} 
+    </ul>
+
+    {% else %} 
+
+        <p>No se encotro nada</p>
+
+    {% endif %}
+
+    <button>
+        <a href="lista_os">ir a lista Obra Social</a>
+    <button>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Impak Medical Homepage</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'app_tpfinal/css/styles.css' %}" rel="stylesheet" />
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-4 px-lg-5">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Productos</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><hr class="dropdown-divider" /></li>
+                                {% if  request.user.is_authenticated %}
+                                <li><a class="dropdown-item" href="{% url 'alta_productos' %}">Alta de producto</a></li>
+                                {% endif %}
+                                <li><a class="dropdown-item" href="{% url 'buscar_producto' %}">Busqueda producto</a></li>
+                                {% if  request.user.is_authenticated %}
+                                <li><a class="dropdown-item" href="{% url 'lista_productos' %}">lista de productos</a></li>
+                                {% endif %}
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Clientes</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><hr class="dropdown-divider" /></li>
+                                {% if  request.user.is_authenticated %}
+                                <li><a class="dropdown-item" href="{% url 'alta_clientes' %}">Alta de clientes</a></li>
+                                {% endif %}
+                                <li><a class="dropdown-item" href="{% url 'buscar_cliente' %}">Busqueda cliente</a></li>
+                                {% if  request.user.is_authenticated %}
+                                <li><a class="dropdown-item" href="{% url 'lista_clientes' %}">lista de clientes</a></li>
+                                {% endif %}
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Obra Social</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><hr class="dropdown-divider" /></li>
+                                {% if  request.user.is_authenticated %}
+                                <li><a class="dropdown-item" href="{% url 'alta_os' %}">Alta de Obra Social</a></li>
+                                {% endif %}
+                                <li><a class="dropdown-item" href="{% url 'buscar_os' %}">Busqueda Obra Social</a></li>
+                                {% if  request.user.is_authenticated %}
+                                <li><a class="dropdown-item" href="{% url 'lista_os' %}">lista de Obra Social</a></li>
+                                {% endif %}
+                            </ul>
+                        {% if  request.user.is_authenticated %}
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="logout">Log Out</a></li>
+                        {% else %}
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="login">Log in</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="register">Registrarse</a></li>
+                        {% endif %}
+                        {% if  request.user.is_authenticated %}
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="editar_perfil">Editar usuario</a></li>
+                        {% endif %}
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="about">About</a></li>
+                        </li>  
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">Bienvenido a Impak Medical</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">Suministros Medicos</p>
+                </div>
+            </div>
+        </header>
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <img class="card-img-top" src="{% static 'C:/Users/gvilk/OneDrive/Desktop/PYTHON/Tp_final/proyecto_tpcoder/app_tpfinal/static/app_tpfinal/assets/img/mascara.png' %}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">Producto destacado</h5>
+                                    <!-- Product price-->
+                                    $40.00 - $80.00
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <img class="card-img-top" src="{% static 'C:/Users/gvilk/OneDrive/Desktop/PYTHON/Tp_final/proyecto_tpcoder/app_tpfinal/static/app_tpfinal/assets/img/mascara2.png' %}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">Nuevo producto</h5>
+                                    <!-- Product reviews-->
+                                    <div class="d-flex justify-content-center small text-warning mb-2">
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                    </div>
+                                    <!-- Product price-->
+                                    <span class="text-muted text-decoration-line-through">$120.00</span>
+                                    $99.00
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Sale badge-->
+                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                            <!-- Product image-->
+                            <img class="card-img-top" src="{% static 'C:/Users/gvilk/OneDrive/Desktop/PYTHON/Tp_final/proyecto_tpcoder/app_tpfinal/static/app_tpfinal/assets/img/mascara3.png' %}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">Sale Item</h5>
+                                    <!-- Product price-->
+                                    <span class="text-muted text-decoration-line-through">$100.00</span>
+                                    $85.00
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; inventarySystem 2022</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
